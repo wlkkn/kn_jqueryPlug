@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery-Dialog</title>
+<script src='./dest/jquery-1.11.1.js'></script>
+<script src="./dest/dialog.js"></script>
+<link href="./dest/dialog.css" rel="stylesheet" type="text/css" />
+<script>
+  $(function(){
+    console.dir('0000');
+    $('#a').on('click',function(){
+      $(document).knDialog('这里是一个弹出框').show();
+    })
+  })
+</script>
+</head>
+<body>
+  <div id="a">0000000000000</div>
+  <div style="height:1000px;"></div>
+</body>
+</html>
