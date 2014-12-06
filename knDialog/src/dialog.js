@@ -267,6 +267,6 @@
   };
   $.fn.knDialog = function(content, options) {
     var dialog = new Dialog(content, options);
-    return dialog;
+    return dialog.show();
   };
 })(jQuery, window, document);

@@ -8,7 +8,7 @@
 <link href="./dest/dialog.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-  <div>支持IE8+</div>
+  <div id="info">支持IE8+</div>
   <button id="dialog1">最基础的弹出框</button>
   <button id="dialog2">不带标题栏的弹出框</button>
   <button id="dialog3">不带按钮的弹出框</button>
@@ -16,45 +16,61 @@
   <button id="dialog5">非模态的弹出框</button>
   <button id="dialog6">非fixed的弹出框</button>
   <button id="dialog7">3秒后关闭的弹出框</button>
-  <button id="dialog8">带有回调事件的弹出层</button>
+  <button id="dialog8">我来自于页面中指定id的内容</button>
+  <button id="dialog9">内容为图片</button>
+  <!-- <button id="dialog10">内容为url</button> -->
+  <button id="dialog11">内容为框架</button>
+  <button id="dialog12">带有回调事件的弹出层</button>
   <div style="height:1000px;"></div>
 </body>
 <script>
   $(function(){
     $('#dialog1').on('click',function(){
-      $(this).knDialog('麻雀虽小，五脏俱全').show();
+      $(this).knDialog('麻雀虽小，五脏俱全');
     });
     $('#dialog2').on('click',function(){
       $(this).knDialog('我没有标题栏哦',{
         showTitle: false
-      }).show();
+      });
     });
     $('#dialog3').on('click',function(){
       $(this).knDialog('我没有按钮哦',{
         showBtns: false
-      }).show();
+      });
     });
     $('#dialog4').on('click',function(){
       $(this).knDialog('拖我试试',{
         draggable: false
-      }).show();
+      });
     });
     $('#dialog5').on('click',function(){
       $(this).knDialog('我不是模态的哦',{
         modal: false
-      }).show();
+      });
     });
     $('#dialog6').on('click',function(){
       $(this).knDialog('拖动滑轮试试',{
         fixed: false
-      }).show();
+      });
     });
     $('#dialog7').on('click',function(){
       $(this).knDialog('等3秒钟试试',{
         time: 3000
-      }).show();
+      });
     });
     $('#dialog8').on('click',function(){
+      $(this).knDialog({type:'id',value:'info'});
+    });
+    $('#dialog9').on('click',function(){
+      $(this).knDialog({type:'img',value:'https://store.gf.com.cn/platform/img/yitaojin.png'});
+    });
+    $('#dialog10').on('click',function(){
+      $(this).knDialog({type:'url',value:'http://www.baidu.com/'});
+    });
+    $('#dialog11').on('click',function(){
+      $(this).knDialog({type:'iframe',value:'http://www.baidu.com/'});
+    });
+    $('#dialog12').on('click',function(){
       $(this).knDialog('带有回调事件的弹出层',{
         beforeShow: function(){
           alert('打开弹出层之前');
@@ -68,7 +84,7 @@
         afterClose: function(){
           alert('关闭弹出层之后');
         }
-      }).show();
+      });
     });
   });
 </script>
