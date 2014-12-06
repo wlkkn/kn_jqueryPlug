@@ -177,6 +177,7 @@
      *显示对话框
     */
     this.show = function(){
+      // 显示弹出框前回调事件beforeShow后如果存在则调用
       if(undefined !== options.beforeShow && options.beforeShow){
         options.beforeShow();
       }
@@ -194,6 +195,7 @@
         $('#' + layerMaskId).fadeTo('slow', getOpacity(layerMaskId));
       }
       dialogBody.fadeTo('slow', getOpacity(options.id),function(){
+        // 显示弹出框后回调事件后beforeHide如果存在则调用
         if(undefined !== options.afterShow){
           options.afterShow();
         }
@@ -213,9 +215,11 @@
     this.hide = function(){
       if(!isShow){return;}
 
+      // 隐藏弹出框前回调事件后beforeHide如果存在则调用
       if(undefined !== options.beforeHide && options.beforeHide){options.beforeHide();}
 
       dialogBody.fadeOut('slow',function(){
+        // 隐藏弹出框后回调事件后afterHide如果存在则调用
         if(undefined !== options.afterHide){
           options.afterHide();
         }
@@ -231,10 +235,12 @@
      * 关闭弹出框
     */
     this.close = function(){
+      // 关闭弹出框前回调事件beforeClose如果存在则调用
       if(undefined !== options.beforeClose && options.beforeClose){options.beforeClose();}
       dialogBody.fadeOut('slow', function(){
         $(this).remove();
         isShow = false;
+        // 关闭弹出框后回调事件后afterClose如果存在则调用
         if(undefined !== options.afterClose){
           options.afterClose();
         }
