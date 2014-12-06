@@ -3,6 +3,7 @@
  *
  * author    wlkkn <https://github.com/wlkkn>
  * version    0.0.1
+ * browser    IE8+
  *
  * @param [object] content(弹出框内容)
  * @param [object] options(弹出框选项)
@@ -31,11 +32,9 @@
     var timeId = null; //自动关闭计时器
     var isShow = false;
     // ie
-    // this.isIe = $.browser.msie;
-    // this.isIe6 = $.browser.msie && ('6.0' === $.browser.version);
+    var isIe = !!window.ActiveXObject;
+    var isIe6 = isIe&&!window.XMLHttpRequest;
     // dialog的布局及标题位置
-    var isIe = false;
-    var isIe6 = false;
     var titleHtml = !options.showTitle ? '' : '<div class="bar"><span class="title">' + options.title + '</span><span class="close">' + options.closeText + '</span></div>';
     var btnConfirmHtml = !options.showBtnConfirm ? '' : '<div class="btn confirm">' + options.btnConfirm + '</div>';
     var btnCancelHtml = !options.showBtnCancel ? '' : '<div class="btn cancel disabled">' + options.btnCancel + '</div>';
