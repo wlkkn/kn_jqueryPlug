@@ -1,14 +1,14 @@
-调用方式
+#调用方式
 $(function(){
   $('#dialog').on('click',function(){
     $(this).knDialog(content, options);
   });
 });
 
-content:弹出框内容
+##content:弹出框内容
   内容可以为页面id的内容，img，url，iframe以及text等等，设置方法如下
   {type:'id',value'id'}或者'我是一个弹出框'
-options:弹出框配置
+##options:弹出框配置
   设置方法如下
   {
     title: '标题',//标题文本，传空则不显示
